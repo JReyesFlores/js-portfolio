@@ -29,6 +29,13 @@ module.exports = {
         test: /\.png/,
         type: 'asset/resource',
       },
+      {
+        test: /\.(woff|woff2)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[hash][ext]'
+        }
+      },
     ],
   },
   plugins: [
