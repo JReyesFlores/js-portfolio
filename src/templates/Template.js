@@ -5,7 +5,6 @@ import instagramImg from '@images/instagram.png';
 
 const Template = async () => {
   const data = await getData();
-  alert(data);
 
   const view = `
     <div class="About">

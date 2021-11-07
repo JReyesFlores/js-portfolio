@@ -1,4 +1,5 @@
 const defaulAPI = process.env.API;
+alert(defaulAPI);
 
 const getData = async (id) => {
   const apiURl = id ? `${defaulAPI}${id}` : defaulAPI;
