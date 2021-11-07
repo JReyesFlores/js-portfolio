@@ -5,6 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const DotEnv = require('dotenv-webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: './src/index.js',
@@ -13,6 +14,7 @@ module.exports = {
     filename: '[name].[contenthash].js',
   },
   mode: 'development',
+  devtool: 'source-map',
   watch: true,
   resolve: {
     extensions: ['.js'],
@@ -67,5 +69,14 @@ module.exports = {
       ],
     }),
     new DotEnv(),
+    new BundleAnalyzerPlugin(),
   ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    compress: true,
+    historyApiFallback: true,
+    port: 5251,
+  },
 };
